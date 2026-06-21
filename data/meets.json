@@ -1,0 +1,73 @@
+{
+  "swimmer": "Luca Sciamanna",
+  "team": "Springfield Swim Club",
+  "teamAbbr": "SSC",
+  "meets": [
+    {
+      "id": "2026-06-20-ridley-township",
+      "date": "2026-06-20",
+      "homeTeam": "Springfield",
+      "awayTeam": "Ridley Township",
+      "sscIsHome": true,
+      "opponent": "Ridley Township",
+      "finalScore": {
+        "ssc": 246,
+        "opponent": 230
+      },
+      "result": "W",
+      "sourceUrl": "https://www.delcoswimmingdivingleague.com/page/swimming/custom-page",
+      "resultsPdfUrl": "https://www.delcoswimmingdivingleague.com/delcosdl/UserFiles/Image/QuickUpload/meet-results_009098.pdf",
+      "events": [
+        {
+          "eventNumber": 22,
+          "name": "Boys 11-12 50 Yard Backstroke",
+          "stroke": "Backstroke",
+          "distance": 50,
+          "seedTime": "1:09.65",
+          "time": "59.19",
+          "timeSeconds": 59.19,
+          "place": 6,
+          "points": 0,
+          "exhibition": true,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "official",
+          "isPR": true
+        },
+        {
+          "eventNumber": 32,
+          "name": "Boys 11-12 50 Yard Breaststroke",
+          "stroke": "Breaststroke",
+          "distance": 50,
+          "seedTime": "1:14.18",
+          "time": "1:06.53",
+          "timeSeconds": 66.53,
+          "place": null,
+          "points": 0,
+          "exhibition": false,
+          "dq": true,
+          "dqReason": "Other",
+          "timeSource": "manual-override",
+          "timeNote": "Officially DQ'd (no time published in the results PDF). Time recorded courtside by a parent.",
+          "isPR": true
+        },
+        {
+          "eventNumber": 42,
+          "name": "Boys 11-12 50 Yard Freestyle",
+          "stroke": "Freestyle",
+          "distance": 50,
+          "seedTime": "47.59",
+          "time": "46.12",
+          "timeSeconds": 46.12,
+          "place": 6,
+          "points": 0,
+          "exhibition": true,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "official",
+          "isPR": true
+        }
+      ]
+    }
+  ]
+}

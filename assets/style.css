@@ -1,0 +1,226 @@
+:root {
+  --ocean-deep: #0b3d4c;
+  --ocean: #0e7490;
+  --ocean-light: #5fb3c9;
+  --aqua: #22d3ee;
+  --sand: #fef9ef;
+  --gold: #f5a524;
+  --ink: #0b2530;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  background: linear-gradient(180deg, var(--sand) 0%, #eaf6f8 100%);
+  color: var(--ink);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--ocean-deep), var(--ocean) 60%, var(--ocean-light));
+  color: white;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 4px 24px rgba(11, 61, 76, 0.35);
+}
+
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mascot {
+  width: 110px;
+  height: auto;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.25));
+  animation: swim 4s ease-in-out infinite;
+}
+
+@keyframes swim {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-2deg); }
+}
+
+.hero-text h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+  opacity: 0.9;
+  font-size: 1.05rem;
+}
+
+.dot { opacity: 0.6; margin: 0 0.4rem; }
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.pr-board h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.pr-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.pr-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(11, 61, 76, 0.12);
+  border: 2px solid transparent;
+  transition: transform 0.15s ease;
+}
+
+.pr-card:hover { transform: translateY(-3px); }
+
+.pr-card .stroke {
+  font-weight: 600;
+  color: var(--ocean);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pr-card .time {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0.3rem 0;
+  color: var(--ink);
+}
+
+.pr-card .date {
+  font-size: 0.75rem;
+  color: #6b7c84;
+}
+
+.controls {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.controls input,
+.controls select {
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #cfe3e8;
+  background: white;
+  font-size: 0.95rem;
+}
+
+.controls input { flex: 1; min-width: 180px; }
+
+.meets {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.meet-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 14px rgba(11, 61, 76, 0.1);
+}
+
+.meet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 1px solid #e7eef0;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.meet-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.meet-meta {
+  font-size: 0.85rem;
+  color: #5b6e75;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge.win { background: #d7f5e3; color: #1a7a44; }
+.badge.loss { background: #fde2e1; color: #b3261e; }
+.badge.tie { background: #fff3cf; color: #8a6d1d; }
+
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.event {
+  background: #f3fafb;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  position: relative;
+  border: 1px solid #e1f0f2;
+}
+
+.event.pr {
+  border-color: var(--gold);
+  background: linear-gradient(135deg, #fff8e8, #fdf3da);
+}
+
+.event .event-name {
+  font-size: 0.85rem;
+  color: var(--ocean);
+  font-weight: 600;
+}
+
+.event .event-time {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.event .star {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7c84;
+  padding: 2rem 1rem 3rem;
+}
+
+footer a { color: var(--ocean); }
+
+@media (max-width: 480px) {
+  .hero-inner { flex-direction: column; text-align: center; }
+}

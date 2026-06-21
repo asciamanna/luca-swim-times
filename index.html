@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luca Sciamanna — SSC Swim Times</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <img src="assets/tiger-shark.svg" alt="Springfield Swim Club Tiger Shark" class="mascot" />
+      <div class="hero-text">
+        <h1>Luca Sciamanna</h1>
+        <p class="subtitle">Springfield Swim Club <span class="dot">•</span> Tiger Sharks</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="pr-board" class="pr-board" aria-label="Personal bests">
+      <h2>Personal Bests</h2>
+      <div id="pr-cards" class="pr-cards"></div>
+    </section>
+
+    <section class="controls" aria-label="Search and filter">
+      <input id="search" type="search" placeholder="Search events, opponents..." aria-label="Search" />
+      <select id="stroke-filter" aria-label="Filter by stroke">
+        <option value="">All Strokes</option>
+      </select>
+      <select id="sort-order" aria-label="Sort order">
+        <option value="desc">Newest first</option>
+        <option value="asc">Oldest first</option>
+      </select>
+    </section>
+
+    <section id="meets" class="meets" aria-label="Meet history"></section>
+  </main>
+
+  <footer>
+    <p>Data pulled from the <a href="https://www.delcoswimmingdivingleague.com/page/swimming/custom-page" target="_blank" rel="noopener">Delco Swimming &amp; Diving League</a>. Updated automatically every Saturday.</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
