@@ -22,48 +22,11 @@ body {
   position: relative;
   background: linear-gradient(135deg, var(--ocean-deep), var(--ocean) 60%, var(--ocean-light));
   color: white;
-  padding: 2.5rem 1.5rem 3.5rem;
+  padding: 2.5rem 1.5rem;
   box-shadow: 0 4px 24px rgba(11, 61, 76, 0.35);
-  overflow: hidden;
-}
-
-.wave-wrap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 50px;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 200%;
-  height: 50px;
-}
-
-.wave path { fill: currentColor; }
-
-.wave-back {
-  color: rgba(95, 179, 201, 0.45);
-  animation: wave-scroll 14s linear infinite;
-}
-
-.wave-front {
-  color: rgba(254, 249, 239, 0.95);
-  animation: wave-scroll 8s linear infinite reverse;
-}
-
-@keyframes wave-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .wave { animation: none; }
   .mascot { animation: none; }
 }
 
