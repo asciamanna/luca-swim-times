@@ -68,6 +68,69 @@
           "isPR": true
         }
       ]
+    },
+    {
+      "id": "2026-06-24-blcc-jv",
+      "date": "2026-06-24",
+      "meetType": "JV",
+      "homeTeam": "Springfield",
+      "awayTeam": "Broomall Lake Country Club",
+      "sscIsHome": true,
+      "opponent": "Broomall Lake Country Club (BLCC)",
+      "finalScore": null,
+      "result": null,
+      "sourceUrl": null,
+      "resultsPdfUrl": null,
+      "events": [
+        {
+          "eventNumber": 901,
+          "name": "Boys 11-12 50 Yard Butterfly",
+          "stroke": "Butterfly",
+          "distance": 50,
+          "seedTime": null,
+          "time": "1:01.50",
+          "timeSeconds": 61.5,
+          "place": null,
+          "points": 0,
+          "exhibition": false,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "manual",
+          "isPR": true
+        },
+        {
+          "eventNumber": 902,
+          "name": "Boys 11-12 50 Yard Backstroke",
+          "stroke": "Backstroke",
+          "distance": 50,
+          "seedTime": null,
+          "time": "1:02.91",
+          "timeSeconds": 62.91,
+          "place": null,
+          "points": 0,
+          "exhibition": false,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "manual",
+          "isPR": false
+        },
+        {
+          "eventNumber": 903,
+          "name": "Boys 11-12 50 Yard Freestyle",
+          "stroke": "Freestyle",
+          "distance": 50,
+          "seedTime": null,
+          "time": "49.50",
+          "timeSeconds": 49.5,
+          "place": null,
+          "points": 0,
+          "exhibition": false,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "manual",
+          "isPR": false
+        }
+      ]
     }
   ]
 }

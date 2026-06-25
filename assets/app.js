@@ -60,6 +60,10 @@ function renderMeets(meets) {
     const resultClass = meet.result === "W" ? "win" : meet.result === "L" ? "loss" : "tie";
     const resultLabel = meet.result === "W" ? "WIN" : meet.result === "L" ? "LOSS" : "TIE";
     const homeAway = meet.sscIsHome ? "Home" : "Away";
+    const meetTypeLabel = meet.meetType === "JV" ? "JV" : "Varsity";
+    const scoreBadge = meet.finalScore
+      ? `<span class="badge ${resultClass}">${resultLabel} ${meet.finalScore.ssc}-${meet.finalScore.opponent}</span>`
+      : "";
 
     const events = meet.events.map(event => `
       <div class="event ${event.isPR ? "pr" : ""}">
@@ -73,9 +77,9 @@ function renderMeets(meets) {
       <article class="meet-card">
         <div class="meet-header">
           <h3>SSC vs. ${meet.opponent}</h3>
-          <span class="badge ${resultClass}">${resultLabel} ${meet.finalScore.ssc}-${meet.finalScore.opponent}</span>
+          ${scoreBadge}
         </div>
-        <div class="meet-meta">${formatDate(meet.date)} • ${homeAway} meet</div>
+        <div class="meet-meta">${formatDate(meet.date)} • ${homeAway} • <span class="meet-type-tag">${meetTypeLabel}</span></div>
         <div class="event-list" style="margin-top: 0.9rem;">${events}</div>
       </article>
     `;

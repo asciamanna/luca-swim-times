@@ -212,6 +212,7 @@ def build_meet_record(row, pdf_text):
     return {
         "id": meet_id,
         "date": date,
+        "meetType": "varsity",
         "homeTeam": row["home_team"],
         "awayTeam": row["away_team"],
         "sscIsHome": ssc_is_home,

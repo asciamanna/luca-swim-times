@@ -178,6 +178,11 @@ main {
 .badge.loss { background: #fde2e1; color: #b3261e; }
 .badge.tie { background: #fff3cf; color: #8a6d1d; }
 
+.meet-type-tag {
+  font-weight: 600;
+  color: #2a7f9e;
+}
+
 .event-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

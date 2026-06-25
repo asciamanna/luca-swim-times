@@ -27,12 +27,13 @@ One JSON file, one record per meet, each with Luca's events embedded. Shape:
     {
       "id": "<date>-<opponent-slug>",
       "date": "YYYY-MM-DD",       // parsed from the PDF header, not the HTML page (HTML only has "Month Day", no year)
+      "meetType": "varsity" | "JV",  // omitted/absent defaults to "varsity" in the UI
       "homeTeam": "...", "awayTeam": "...",
       "sscIsHome": true/false,
       "opponent": "...",
-      "finalScore": { "ssc": N, "opponent": N },
-      "result": "W" | "L" | "T",
-      "sourceUrl": "...", "resultsPdfUrl": "...",
+      "finalScore": { "ssc": N, "opponent": N } | null,  // null for meets with no tracked team score (e.g. some JV meets)
+      "result": "W" | "L" | "T" | null,
+      "sourceUrl": "...", "resultsPdfUrl": "...",  // null when there's no league page/PDF (e.g. JV meets)
       "events": [
         {
           "eventNumber": 22, "name": "Boys 11-12 50 Yard Backstroke",
@@ -40,7 +41,7 @@ One JSON file, one record per meet, each with Luca's events embedded. Shape:
           "seedTime": "1:09.65", "time": "59.19", "timeSeconds": 59.19,
           "place": 6, "points": 0,
           "exhibition": true, "dq": false, "dqReason": null,
-          "timeSource": "official" | "manual-override",
+          "timeSource": "official" | "manual-override" | "manual",
           "isPR": true
         }
       ]
@@ -90,8 +91,22 @@ event number:
 `scripts/scrape.py` applies overrides on every run — the overridden time
 becomes the displayed time (`timeSource: "manual-override"`) and is eligible
 to be flagged as a PR, regardless of the official DQ. This is the supported
-way to correct a result; don't hand-edit `data/meets.json` directly since the
-next scrape will overwrite it.
+way to correct a result within a meet the scraper controls (one matched by a
+current league page row) — don't hand-edit *that* meet's record directly,
+since the scraper rebuilds it from the PDF every run and will overwrite it.
+
+## Non-league meets (e.g. JV meets)
+
+`scripts/scrape.py`'s `main()` only adds/overwrites meet `id`s it finds on the
+current league page (`existing_by_id[record["id"]] = record`); it never
+deletes anything. A meet whose `id` never matches a league row (e.g. an
+informal JV meet that isn't posted on the league site) is safe to hand-add
+directly to `data/meets.json` — it persists across every future scrape run
+untouched. Use `timeSource: "manual"` for hand-entered times, `meetType: "JV"`,
+and `finalScore`/`result`/`sourceUrl`/`resultsPdfUrl`: `null` if there's no
+official team score or source page. After adding, recompute `isPR` across all
+meets (see `recompute_personal_bests` in `scripts/scrape.py`) rather than
+hand-setting it.
 
 ## Scraper — `scripts/scrape.py`
 
