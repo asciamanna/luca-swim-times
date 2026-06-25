@@ -6,6 +6,7 @@
     {
       "id": "2026-06-20-ridley-township",
       "date": "2026-06-20",
+      "meetType": "varsity",
       "homeTeam": "Springfield",
       "awayTeam": "Ridley Township",
       "sscIsHome": true,
