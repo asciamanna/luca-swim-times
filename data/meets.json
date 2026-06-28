@@ -162,15 +162,16 @@
           "distance": 50,
           "unit": "m",
           "seedTime": "NT",
-          "time": null,
-          "timeSeconds": null,
+          "time": "1:10.00",
+          "timeSeconds": 70.0,
           "place": null,
           "points": 0,
           "exhibition": false,
           "dq": true,
           "dqReason": "Alternating Kick",
-          "timeSource": "official",
-          "isPR": false
+          "timeSource": "manual-override",
+          "timeNote": "Officially DQ'd (Alternating Kick). Time recorded from pool timers.",
+          "isPR": true
         },
         {
           "eventNumber": 32,

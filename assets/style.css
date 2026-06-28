@@ -75,49 +75,98 @@ main {
   margin-bottom: 0.75rem;
 }
 
+/* PR stroke cards — one card per stroke, yards/meters side by side inside */
 .pr-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
-.pr-card {
+.pr-stroke-card {
   background: var(--card);
-  border-radius: 14px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(11, 61, 76, 0.12);
-  border: 2px solid transparent;
-  transition: transform 0.15s ease;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(11, 61, 76, 0.14);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.pr-card:hover { transform: translateY(-3px); }
+.pr-stroke-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(11, 61, 76, 0.22);
+}
 
-.pr-card .stroke {
-  font-weight: 600;
-  color: var(--ocean);
-  font-size: 0.85rem;
+.pr-stroke-header {
+  background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 100%);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pr-stroke-name {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--gold);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
 }
 
-.pr-card .time {
-  font-size: 1.6rem;
+.pr-pools {
+  display: flex;
+  align-items: stretch;
+}
+
+.pr-pool {
+  flex: 1;
+  padding: 1.1rem 1rem;
+  text-align: center;
+}
+
+.pr-pool--yards  { background: #f0f8fb; }
+.pr-pool--meters { background: #e8f5f2; }
+
+/* Lane-rope divider between yard and meter columns */
+.pr-lane-divider {
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--ocean-light) 0px,
+    var(--ocean-light) 10px,
+    transparent 10px,
+    transparent 18px
+  );
+  margin: 0.75rem 0;
+  flex-shrink: 0;
+}
+
+.pr-pool-label {
+  font-size: 0.68rem;
   font-weight: 700;
-  margin: 0.3rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  color: var(--ocean);
+  margin-bottom: 0.45rem;
+}
+
+.pr-pool-time {
+  font-size: 1.75rem;
+  font-weight: 800;
   color: var(--ink);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+  font-variant-numeric: tabular-nums;
 }
 
-.pr-card .pr-converted {
-  font-size: 0.78rem;
+.pr-pool-converted {
+  font-size: 0.72rem;
   color: var(--ocean-light);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 
-.pr-card .date {
-  font-size: 0.75rem;
-  color: #6b7c84;
+.pr-pool-date {
+  font-size: 0.7rem;
+  color: #8a9ea5;
 }
 
 .controls {

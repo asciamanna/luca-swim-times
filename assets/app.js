@@ -23,7 +23,7 @@ function formatTime(seconds) {
   return seconds.toFixed(2);
 }
 
-// 1 yard = 0.9144 meters, so 50y = 45.72m; multiply yards time by this to get meters equivalent
+// 1 yard = 0.9144 m, so 50y = 45.72m; factor to convert yard time → meter equivalent
 const YARDS_TO_METERS = 50 / 45.72;
 
 function convertTime(seconds, fromUnit, toUnit) {
@@ -31,36 +31,60 @@ function convertTime(seconds, fromUnit, toUnit) {
   return fromUnit === "y" ? seconds * YARDS_TO_METERS : seconds / YARDS_TO_METERS;
 }
 
+// Stroke display order (matches medley relay order)
+const STROKE_ORDER = ["Butterfly", "Backstroke", "Breaststroke", "Freestyle", "Medley"];
+
 function buildPersonalBests(meets) {
+  // Returns { stroke → { y: event|null, m: event|null } }
   const bests = {};
   for (const meet of meets) {
     for (const event of meet.events) {
       if (event.timeSeconds == null) continue;
       const unit = event.unit ?? "y";
-      const key = `${event.stroke}-${event.distance}-${unit}`;
-      const current = bests[key];
+      if (!bests[event.stroke]) bests[event.stroke] = { y: null, m: null };
+      const current = bests[event.stroke][unit];
       if (!current || event.timeSeconds < current.timeSeconds) {
-        bests[key] = { ...event, unit, date: meet.date };
+        bests[event.stroke][unit] = { ...event, unit, date: meet.date };
       }
     }
   }
-  return Object.values(bests).sort((a, b) => a.distance - b.distance || a.stroke.localeCompare(b.stroke));
+  return bests;
 }
 
-function renderPRCards(bests) {
-  const container = document.getElementById("pr-cards");
-  container.innerHTML = bests.map(b => {
-    const unit = b.unit ?? "y";
+function renderPRCards(meets) {
+  const grouped = buildPersonalBests(meets);
+  const strokes = Object.keys(grouped).sort((a, b) => {
+    const ai = STROKE_ORDER.indexOf(a);
+    const bi = STROKE_ORDER.indexOf(b);
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+  });
+
+  const poolColumn = (event, unit) => {
     const otherUnit = unit === "y" ? "m" : "y";
-    const convertedSeconds = convertTime(b.timeSeconds, unit, otherUnit);
+    const converted = convertTime(event.timeSeconds, unit, otherUnit);
     return `
-    <div class="pr-card">
-      <div class="stroke">${b.distance}${unit} ${b.stroke}</div>
-      <div class="time">${formatTime(b.timeSeconds)}</div>
-      <div class="pr-converted">≈ ${formatTime(convertedSeconds)} in ${otherUnit}</div>
-      <div class="date">${formatDate(b.date)}</div>
-    </div>
-  `;
+      <div class="pr-pool pr-pool--${unit === "y" ? "yards" : "meters"}">
+        <div class="pr-pool-label">50 ${unit === "y" ? "Yards" : "Meters"}</div>
+        <div class="pr-pool-time">${formatTime(event.timeSeconds)}</div>
+        <div class="pr-pool-converted">≈ ${formatTime(converted)} in ${otherUnit}</div>
+        <div class="pr-pool-date">${formatDate(event.date)}</div>
+      </div>`;
+  };
+
+  const container = document.getElementById("pr-cards");
+  container.innerHTML = strokes.map(stroke => {
+    const { y, m } = grouped[stroke];
+    return `
+      <div class="pr-stroke-card">
+        <div class="pr-stroke-header">
+          <span class="pr-stroke-name">${stroke}</span>
+        </div>
+        <div class="pr-pools">
+          ${y ? poolColumn(y, "y") : ""}
+          ${y && m ? '<div class="pr-lane-divider"></div>' : ""}
+          ${m ? poolColumn(m, "m") : ""}
+        </div>
+      </div>`;
   }).join("");
 }
 
@@ -135,7 +159,7 @@ async function init() {
   const data = await loadData();
   const meets = data.meets;
 
-  renderPRCards(buildPersonalBests(meets));
+  renderPRCards(meets);
   populateStrokeFilter(meets);
 
   const searchInput = document.getElementById("search");
