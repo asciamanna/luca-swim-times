@@ -2,10 +2,10 @@ name: Update swim data and deploy
 
 on:
   schedule:
-    # 5:00pm Eastern on Saturdays. GitHub Actions cron is UTC and does not
+    # 11:00pm Eastern on Saturdays. GitHub Actions cron is UTC and does not
     # observe DST, so this targets EDT (UTC-4), correct for summer league season.
-    # During EST months this will fire at 4:00pm Eastern instead.
-    - cron: "0 21 * * 6"
+    # During EST months this will fire at 10:00pm Eastern instead.
+    - cron: "0 3 * * 0"
   workflow_dispatch: {}
   push:
     branches: [main]
