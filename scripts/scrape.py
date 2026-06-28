@@ -192,7 +192,7 @@ def recompute_personal_bests(meets):
             if event.get("timeSeconds") is None:
                 event["isPR"] = False
                 continue
-            key = (event["stroke"], event["distance"])
+            key = (event["stroke"], event["distance"], event.get("unit", "y"))
             current_best = best.get(key)
             is_pr = current_best is None or event["timeSeconds"] < current_best
             event["isPR"] = is_pr

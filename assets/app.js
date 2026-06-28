@@ -23,15 +23,24 @@ function formatTime(seconds) {
   return seconds.toFixed(2);
 }
 
+// 1 yard = 0.9144 meters, so 50y = 45.72m; multiply yards time by this to get meters equivalent
+const YARDS_TO_METERS = 50 / 45.72;
+
+function convertTime(seconds, fromUnit, toUnit) {
+  if (fromUnit === toUnit) return seconds;
+  return fromUnit === "y" ? seconds * YARDS_TO_METERS : seconds / YARDS_TO_METERS;
+}
+
 function buildPersonalBests(meets) {
   const bests = {};
   for (const meet of meets) {
     for (const event of meet.events) {
       if (event.timeSeconds == null) continue;
-      const key = `${event.stroke}-${event.distance}`;
+      const unit = event.unit ?? "y";
+      const key = `${event.stroke}-${event.distance}-${unit}`;
       const current = bests[key];
       if (!current || event.timeSeconds < current.timeSeconds) {
-        bests[key] = { ...event, date: meet.date };
+        bests[key] = { ...event, unit, date: meet.date };
       }
     }
   }
@@ -40,13 +49,19 @@ function buildPersonalBests(meets) {
 
 function renderPRCards(bests) {
   const container = document.getElementById("pr-cards");
-  container.innerHTML = bests.map(b => `
+  container.innerHTML = bests.map(b => {
+    const unit = b.unit ?? "y";
+    const otherUnit = unit === "y" ? "m" : "y";
+    const convertedSeconds = convertTime(b.timeSeconds, unit, otherUnit);
+    return `
     <div class="pr-card">
-      <div class="stroke">${b.distance}${b.unit ?? "y"} ${b.stroke}</div>
+      <div class="stroke">${b.distance}${unit} ${b.stroke}</div>
       <div class="time">${formatTime(b.timeSeconds)}</div>
+      <div class="pr-converted">≈ ${formatTime(convertedSeconds)} in ${otherUnit}</div>
       <div class="date">${formatDate(b.date)}</div>
     </div>
-  `).join("");
+  `;
+  }).join("");
 }
 
 function renderMeets(meets) {

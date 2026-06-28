@@ -109,6 +109,12 @@ main {
   color: var(--ink);
 }
 
+.pr-card .pr-converted {
+  font-size: 0.78rem;
+  color: var(--ocean-light);
+  margin-bottom: 0.2rem;
+}
+
 .pr-card .date {
   font-size: 0.75rem;
   color: #6b7c84;
