@@ -125,9 +125,9 @@ GitHub Pages, deployed via `.github/workflows/update-and-deploy.yml`:
 - Runs the scraper, commits `data/meets.json` if it changed.
 - Publishes the repo root as a Pages artifact (`index.html` + `assets/` +
   `data/meets.json` are all served as static files).
-- Scheduled Saturdays at 5pm Eastern (`cron: 0 21 * * 6` = 5pm EDT; GitHub
-  Actions cron is fixed UTC and doesn't observe DST, so this drifts to 4pm
-  during EST months — fine for a summer-only league).
+- Scheduled Saturday nights at 11pm Eastern (`cron: 0 3 * * 0` = 11pm EDT,
+  i.e. Sunday 3am UTC; GitHub Actions cron is fixed UTC and doesn't observe
+  DST, so this drifts to 10pm during EST months — fine for a summer-only league).
 - Can also be triggered manually via `workflow_dispatch`, or runs automatically
   on every push to `main`.
 - Repo is public (required for free GitHub Pages); the underlying meet data
