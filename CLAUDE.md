@@ -37,7 +37,7 @@ One JSON file, one record per meet, each with Luca's events embedded. Shape:
       "events": [
         {
           "eventNumber": 22, "name": "Boys 11-12 50 Yard Backstroke",
-          "stroke": "Backstroke", "distance": 50,
+          "stroke": "Backstroke", "distance": 50, "unit": "y",  // "y" = yards, "m" = meters (SC Meter pools)
           "seedTime": "1:09.65", "time": "59.19", "timeSeconds": 59.19,
           "place": 6, "points": 0,
           "exhibition": true, "dq": false, "dqReason": null,

@@ -42,7 +42,7 @@ function renderPRCards(bests) {
   const container = document.getElementById("pr-cards");
   container.innerHTML = bests.map(b => `
     <div class="pr-card">
-      <div class="stroke">${b.distance}y ${b.stroke}</div>
+      <div class="stroke">${b.distance}${b.unit ?? "y"} ${b.stroke}</div>
       <div class="time">${formatTime(b.timeSeconds)}</div>
       <div class="date">${formatDate(b.date)}</div>
     </div>
@@ -68,7 +68,7 @@ function renderMeets(meets) {
     const events = meet.events.map(event => `
       <div class="event ${event.isPR ? "pr" : ""}">
         ${event.isPR ? '<span class="star" title="Personal Best">★</span>' : ""}
-        <div class="event-name">${event.distance}y ${event.stroke}</div>
+        <div class="event-name">${event.distance}${event.unit ?? "y"} ${event.stroke}</div>
         <div class="event-time">${event.time ? formatTime(event.timeSeconds) : "—"}</div>
       </div>
     `).join("");

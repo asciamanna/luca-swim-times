@@ -24,6 +24,7 @@
           "name": "Boys 11-12 50 Yard Backstroke",
           "stroke": "Backstroke",
           "distance": 50,
+          "unit": "y",
           "seedTime": "1:09.65",
           "time": "59.19",
           "timeSeconds": 59.19,
@@ -40,6 +41,7 @@
           "name": "Boys 11-12 50 Yard Breaststroke",
           "stroke": "Breaststroke",
           "distance": 50,
+          "unit": "y",
           "seedTime": "1:14.18",
           "time": "1:06.53",
           "timeSeconds": 66.53,
@@ -57,6 +59,7 @@
           "name": "Boys 11-12 50 Yard Freestyle",
           "stroke": "Freestyle",
           "distance": 50,
+          "unit": "y",
           "seedTime": "47.59",
           "time": "46.12",
           "timeSeconds": 46.12,
@@ -88,6 +91,7 @@
           "name": "Boys 11-12 50 Yard Butterfly",
           "stroke": "Butterfly",
           "distance": 50,
+          "unit": "y",
           "seedTime": null,
           "time": "1:01.50",
           "timeSeconds": 61.5,
@@ -104,6 +108,7 @@
           "name": "Boys 11-12 50 Yard Backstroke",
           "stroke": "Backstroke",
           "distance": 50,
+          "unit": "y",
           "seedTime": null,
           "time": "1:02.91",
           "timeSeconds": 62.91,
@@ -120,6 +125,7 @@
           "name": "Boys 11-12 50 Yard Freestyle",
           "stroke": "Freestyle",
           "distance": 50,
+          "unit": "y",
           "seedTime": null,
           "time": "49.50",
           "timeSeconds": 49.5,
@@ -153,7 +159,8 @@
           "eventNumber": 12,
           "name": "Boys 11-12 50 SC Meter Butterfly",
           "stroke": "Butterfly",
-          "distance": null,
+          "distance": 50,
+          "unit": "m",
           "seedTime": "NT",
           "time": null,
           "timeSeconds": null,
@@ -169,7 +176,8 @@
           "eventNumber": 32,
           "name": "Boys 11-12 50 SC Meter Breaststroke",
           "stroke": "Breaststroke",
-          "distance": null,
+          "distance": 50,
+          "unit": "m",
           "seedTime": "NT",
           "time": "1:08.17",
           "timeSeconds": 68.17,
@@ -179,13 +187,14 @@
           "dq": false,
           "dqReason": null,
           "timeSource": "official",
-          "isPR": true
+          "isPR": false
         },
         {
           "eventNumber": 42,
           "name": "Boys 11-12 50 SC Meter Freestyle",
           "stroke": "Freestyle",
-          "distance": null,
+          "distance": 50,
+          "unit": "m",
           "seedTime": "53.60",
           "time": "49.23",
           "timeSeconds": 49.23,
@@ -195,7 +204,7 @@
           "dq": false,
           "dqReason": null,
           "timeSource": "official",
-          "isPR": true
+          "isPR": false
         }
       ]
     }

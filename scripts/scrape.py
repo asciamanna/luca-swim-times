@@ -135,13 +135,17 @@ def extract_luca_events(pdf_text):
 
         event_number, event_name = current_event
         stroke_match = re.search(r"(Freestyle|Backstroke|Breaststroke|Butterfly|Medley)", event_name)
-        distance_match = re.search(r"(\d+)\s*Yard", event_name)
+        distance_match = re.search(r"(\d+)\s*(Yard|SC Meter|Meter)", event_name, re.IGNORECASE)
+        distance = int(distance_match.group(1)) if distance_match else None
+        unit_raw = distance_match.group(2).lower() if distance_match else "yard"
+        unit = "m" if "meter" in unit_raw else "y"
 
         events.append({
             "eventNumber": event_number,
             "name": event_name,
             "stroke": stroke_match.group(1) if stroke_match else None,
-            "distance": int(distance_match.group(1)) if distance_match else None,
+            "distance": distance,
+            "unit": unit,
             "seedTime": m.group("seed"),
             "time": time_clean,
             "timeSeconds": time_to_seconds(time_clean) if time_clean else None,
