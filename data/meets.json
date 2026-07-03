@@ -208,6 +208,75 @@
           "isPR": true
         }
       ]
+    },
+    {
+      "id": "2026-07-02-lawrence-park",
+      "date": "2026-07-02",
+      "meetType": "varsity",
+      "homeTeam": "Lawrence Park",
+      "awayTeam": "Springfield",
+      "sscIsHome": false,
+      "opponent": "Lawrence Park",
+      "finalScore": {
+        "ssc": 195,
+        "opponent": 282
+      },
+      "result": "L",
+      "sourceUrl": "https://www.delcoswimmingdivingleague.com/page/swimming/custom-page",
+      "resultsPdfUrl": "https://www.delcoswimmingdivingleague.com/delcosdl/UserFiles/Image/QuickUpload/ssc-lpsc-07-01-26_061019.pdf",
+      "events": [
+        {
+          "eventNumber": 12,
+          "name": "Boys 11-12 50 SC Meter Butterfly",
+          "stroke": "Butterfly",
+          "distance": 50,
+          "unit": "m",
+          "seedTime": "1:08.27",
+          "time": "1:15.70",
+          "timeSeconds": 75.7,
+          "place": 5,
+          "points": 0,
+          "exhibition": false,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "official",
+          "isPR": false
+        },
+        {
+          "eventNumber": 22,
+          "name": "Boys 11-12 50 SC Meter Backstroke",
+          "stroke": "Backstroke",
+          "distance": 50,
+          "unit": "m",
+          "seedTime": "1:05.70",
+          "time": "1:05.49",
+          "timeSeconds": 65.49,
+          "place": 6,
+          "points": 0,
+          "exhibition": true,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "official",
+          "isPR": true
+        },
+        {
+          "eventNumber": 32,
+          "name": "Boys 11-12 50 SC Meter Breaststroke",
+          "stroke": "Breaststroke",
+          "distance": 50,
+          "unit": "m",
+          "seedTime": "1:22.34",
+          "time": "1:10.54",
+          "timeSeconds": 70.54,
+          "place": 6,
+          "points": 0,
+          "exhibition": true,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "official",
+          "isPR": false
+        }
+      ]
     }
   ]
 }
