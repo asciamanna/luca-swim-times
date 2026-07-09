@@ -340,6 +340,7 @@
           "dq": false,
           "dqReason": null,
           "timeSource": "manual",
+          "relay": true,
           "isPR": true
         }
       ]

@@ -39,7 +39,7 @@ function buildPersonalBests(meets) {
   const bests = {};
   for (const meet of meets) {
     for (const event of meet.events) {
-      if (event.timeSeconds == null) continue;
+      if (event.timeSeconds == null || event.relay) continue;
       const unit = event.unit ?? "y";
       if (!bests[event.stroke]) bests[event.stroke] = { y: null, m: null };
       const current = bests[event.stroke][unit];
@@ -107,7 +107,7 @@ function renderMeets(meets) {
     const events = meet.events.map(event => `
       <div class="event ${event.isPR ? "pr" : ""}">
         ${event.isPR ? '<span class="star" title="Personal Best">★</span>' : ""}
-        <div class="event-name">${event.distance}${event.unit ?? "y"} ${event.stroke}</div>
+        <div class="event-name">${event.distance}${event.unit ?? "y"} ${event.stroke}${event.relay ? " Relay" : ""}</div>
         <div class="event-time">${event.time ? formatTime(event.timeSeconds) : "—"}</div>
       </div>
     `).join("");
