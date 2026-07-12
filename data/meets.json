@@ -344,6 +344,75 @@
           "isPR": true
         }
       ]
+    },
+    {
+      "id": "2026-07-11-hilltop",
+      "date": "2026-07-11",
+      "meetType": "varsity",
+      "homeTeam": "Hilltop",
+      "awayTeam": "Springfield",
+      "sscIsHome": false,
+      "opponent": "Hilltop",
+      "finalScore": {
+        "ssc": 218,
+        "opponent": 258
+      },
+      "result": "L",
+      "sourceUrl": "https://www.delcoswimmingdivingleague.com/page/swimming/custom-page",
+      "resultsPdfUrl": "https://www.delcoswimmingdivingleague.com/delcosdl/UserFiles/Image/QuickUpload/springfield-vs-hilltop-07-11-26_007023.pdf",
+      "events": [
+        {
+          "eventNumber": 12,
+          "name": "Boys 11-12 50 SC Meter Butterfly",
+          "stroke": "Butterfly",
+          "distance": 50,
+          "unit": "m",
+          "seedTime": "1:08.27",
+          "time": null,
+          "timeSeconds": null,
+          "place": null,
+          "points": 0,
+          "exhibition": false,
+          "dq": true,
+          "dqReason": "Non-simultaneous touch",
+          "timeSource": "official",
+          "isPR": false
+        },
+        {
+          "eventNumber": 22,
+          "name": "Boys 11-12 50 SC Meter Backstroke",
+          "stroke": "Backstroke",
+          "distance": 50,
+          "unit": "m",
+          "seedTime": "1:05.70",
+          "time": "1:06.20",
+          "timeSeconds": 66.2,
+          "place": 5,
+          "points": 0,
+          "exhibition": true,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "official",
+          "isPR": false
+        },
+        {
+          "eventNumber": 42,
+          "name": "Boys 11-12 50 SC Meter Freestyle",
+          "stroke": "Freestyle",
+          "distance": 50,
+          "unit": "m",
+          "seedTime": "51.19",
+          "time": "47.17",
+          "timeSeconds": 47.17,
+          "place": 6,
+          "points": 0,
+          "exhibition": true,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "official",
+          "isPR": true
+        }
+      ]
     }
   ]
 }
