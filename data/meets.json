@@ -368,15 +368,16 @@
           "distance": 50,
           "unit": "m",
           "seedTime": "1:08.27",
-          "time": null,
-          "timeSeconds": null,
+          "time": "1:03.04",
+          "timeSeconds": 63.04,
           "place": null,
           "points": 0,
           "exhibition": false,
           "dq": true,
           "dqReason": "Non-simultaneous touch",
-          "timeSource": "official",
-          "isPR": false
+          "timeSource": "manual-override",
+          "timeNote": "Officially DQ'd. Time recorded from pool timers.",
+          "isPR": true
         },
         {
           "eventNumber": 22,
@@ -410,6 +411,55 @@
           "dq": false,
           "dqReason": null,
           "timeSource": "official",
+          "isPR": true
+        }
+      ]
+    },
+    {
+      "id": "2026-07-15-lansdowne-jv",
+      "date": "2026-07-15",
+      "meetType": "JV",
+      "homeTeam": "Lansdowne Swim Club",
+      "awayTeam": "Springfield",
+      "sscIsHome": false,
+      "opponent": "Lansdowne Swim Club",
+      "finalScore": null,
+      "result": null,
+      "sourceUrl": null,
+      "resultsPdfUrl": null,
+      "events": [
+        {
+          "eventNumber": 1101,
+          "name": "Boys 11-12 50 SC Meter Butterfly",
+          "stroke": "Butterfly",
+          "distance": 50,
+          "unit": "m",
+          "seedTime": null,
+          "time": "1:03.03",
+          "timeSeconds": 63.03,
+          "place": null,
+          "points": 0,
+          "exhibition": false,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "manual",
+          "isPR": true
+        },
+        {
+          "eventNumber": 1102,
+          "name": "Boys 11-12 50 SC Meter Breaststroke",
+          "stroke": "Breaststroke",
+          "distance": 50,
+          "unit": "m",
+          "seedTime": null,
+          "time": "1:04.36",
+          "timeSeconds": 64.36,
+          "place": null,
+          "points": 0,
+          "exhibition": false,
+          "dq": false,
+          "dqReason": null,
+          "timeSource": "manual",
           "isPR": true
         }
       ]
